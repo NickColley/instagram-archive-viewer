@@ -1,0 +1,35 @@
+{
+  "name": "instagram-download-viewer",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "test:ci": "npm run test 2>&1 | tee -a /tmp/ci-output.txt; if grep -Fq 'Linter' /tmp/ci-output.txt; then exit 1; fi",
+    "test": "NODE_ENV=test eleventy"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{css,yml}": [
+      "prettier --write --ignore-unknown"
+    ],
+    "**/*.js": [
+      "prettier --write --ignore-unknown",
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.1"
+  },
+  "devDependencies": {
+    "eleventy-plugin-accessibility": "github:nickcolley/eleventy-plugin-accessibility",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.0",
+    "prettier": "^2.1.2"
+  }
+}

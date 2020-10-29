@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <title>{% if title %}{{ title }} – {% endif %}Instagram Download Viewer</title>
+    <meta name="description" content="Instagram Download Viewer" />
+    <meta charset="utf-8">
+    <meta name="theme-color">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <script>document.documentElement.classList.remove('no-js');</script>
+
+    <a href="#main" class="skip-link">
+      Skip to main content
+    </a>
+
+
+    <main id="main">
+      {{ content | safe }}
+    </main>
+
+    <script src="/assets/scripts.js"></script>
+  </body>
+</html>
