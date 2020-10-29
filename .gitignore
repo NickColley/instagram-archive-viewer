@@ -6,3 +6,7 @@ node_modules/
 
 # Eleventy
 _site/
+
+# Prevent instagram folder from being committed
+src/_data/**/*
+!src/_data/README.md
