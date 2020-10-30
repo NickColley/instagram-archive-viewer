@@ -1,6 +1,6 @@
 {
   "name": "instagram-archive-viewer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bin": {
     "instagram-archive-viewer": "./bin/index.js"
   },
