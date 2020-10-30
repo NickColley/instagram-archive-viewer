@@ -1,5 +1,7 @@
 # Instagram Download Viewer
 
+![](screenshot.png)
+
 View your main instagram feed and stories to a local website from your data download archive.
 
 ## Getting started
@@ -43,7 +45,7 @@ By default it will be ignored by `.gitignore` but you may decide some of the alr
 
 ## Development
 
-[![Repostiory CI Status](https://github.com/nickcolley/instagram-download-viewer/workflows/ci/badge.svg)](https://github.com/nickcolley/instagram-download-viewer/actions?query=workflow%3Aci)
+[![Repository CI Status](https://github.com/nickcolley/instagram-download-viewer/workflows/ci/badge.svg)](https://github.com/nickcolley/instagram-download-viewer/actions?query=workflow%3Aci)
 
 ### Running the project locally on your machine
 
