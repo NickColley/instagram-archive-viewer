@@ -1,7 +1,7 @@
-# Instagram Download Viewer
+# Instagram Archive Viewer
 
-[![Repository CI Status](https://github.com/nickcolley/instagram-download-viewer/workflows/ci/badge.svg)](https://github.com/nickcolley/instagram-download-viewer/actions?query=workflow%3Aci)
-[![npm version](https://img.shields.io/npm/v/instagram-download-viewer.svg?style=flat)](https://www.npmjs.com/package/instagram-download-viewer)
+[![Repository CI Status](https://github.com/nickcolley/instagram-archive-viewer/workflows/ci/badge.svg)](https://github.com/nickcolley/instagram-archive-viewer/actions?query=workflow%3Aci)
+[![npm version](https://img.shields.io/npm/v/instagram-archive-viewer.svg?style=flat)](https://www.npmjs.com/package/instagram-archive-viewer)
 
 ![](readme-screenshot-3.png)
 
@@ -14,13 +14,13 @@ First, download your [instagram data archive](https://help.instagram.com/contact
 Then run:
 
 ```
-npx github:nickcolley/instagram-download-viewer --input ~/Downloads/username_12345678.zip
+npx instagram-archive-viewer --input ~/Downloads/username_12345678.zip
 ```
 
 For all options run:
 
 ```
-npx github:nickcolley/instagram-download-viewer --help
+npx instagram-archive-viewer --help
 ```
 
 ## Will this expose my personal details?
@@ -59,13 +59,13 @@ If you don't have Node.js, try [installing Node Version Manager (NVM)](https://g
 #### 2. Clone your forked project
 
 ```bash
-git clone git@github.com:your-username-here/instagram-download-viewer.git
+git clone git@github.com:your-username-here/instagram-archive-viewer.git
 ```
 
 #### 3. Navigate to the project
 
 ```bash
-cd instagram-download-viewer
+cd instagram-archive-viewer
 ```
 
 #### 4. Install Node.js using nvm (optional)

@@ -10,13 +10,13 @@ const zipFile = require("is-zip-file");
 const unzipper = require("unzipper");
 const prompts = require("prompts");
 const tmp = require("tmp");
-const debug = require("debug")("instagram-download-viewer");
+const debug = require("debug")("instagram-archive-viewer");
 const { program } = require("commander");
 const { version } = require(path.join(__dirname, "../package.json"));
 program.version(version);
 
 const tmpDir = tmp.dirSync({
-  template: "instagram-download-viewer-XXXXXX",
+  template: "instagram-archive-viewer-XXXXXX",
   unsafeCleanup: true,
 });
 program

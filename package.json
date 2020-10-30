@@ -1,8 +1,8 @@
 {
-  "name": "instagram-download-viewer",
+  "name": "instagram-archive-viewer",
   "version": "1.0.0",
   "bin": {
-    "instagram-download-viewer": "./bin/index.js"
+    "instagram-archive-viewer": "./bin/index.js"
   },
   "scripts": {
     "start": "eleventy --serve",
