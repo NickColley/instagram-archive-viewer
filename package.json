@@ -5,10 +5,7 @@
     "instagram-download-viewer": "./bin/index.js"
   },
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy",
-    "test:ci": "npm run test 2>&1 | tee -a /tmp/ci-output.txt; if grep -Fq 'Linter' /tmp/ci-output.txt; then exit 1; fi",
-    "test": "NODE_ENV=test eleventy"
+    "start": "eleventy --serve"
   },
   "husky": {
     "hooks": {
