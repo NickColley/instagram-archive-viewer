@@ -1,6 +1,5 @@
 @font-face {
-  src: url(/c95d1e45212c8d53a0f3be7ee37fd61a93710c5c/1dac5/assets/fonts/barlow.woff2)
-    format("woff2-variations");
+  src: url("/assets/Barlow.woff2") format("woff2-variations");
   font-family: Barlow;
   font-weight: 1 999;
   font-display: fallback;
