@@ -11,37 +11,39 @@
   <body>
     <script>document.documentElement.classList.remove('no-js');</script>
 
-    <a href="#main" class="skip-link">
-      Skip to main content
-    </a>
-
-
-    <main id="main">
+    <header>
+      <a href="#main" class="skip-link">
+        Skip to main content
+      </a>
+      <span class="title">Instagram Download Viewer</span>
       <div class="profile">
           <img src="/{{ account.img }}" alt="" />
           <div>
-              <h1>{{ account.username }}</h1>
+              <span class="account-name">{{ account.username }}</span>
               <p>Joined <strong>{{ account.dateJoined }}</strong></p>
           </div>
       </div>
-      <nav>
-        <div class="nav-container">
-          <a{% if page.url === "/" %} aria-current="page"{% endif %} href="/">
-            <svg aria-hidden="true" class="nav-icon" fill="currentColor" height="1em" width="1em" viewBox="0 0 48 48" >
-              <path clip-rule="evenodd" fill-rule="evenodd" d="M45 1.5H3c-.8 0-1.5.7-1.5 1.5v42c0 .8.7 1.5 1.5 1.5h42c.8 0 1.5-.7 1.5-1.5V3c0-.8-.7-1.5-1.5-1.5zm-40.5 3h11v11h-11v-11zm0 14h11v11h-11v-11zm11 25h-11v-11h11v11zm14 0h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11zm14 28h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11z"></path>
-            </svg>
-            Feed
-            <strong>{{ posts.length }}</strong>
-          </a>
-          <a{% if page.url === "/stories/" %} aria-current="page"{% endif %} href="/stories">
-            <svg aria-hidden="true" class="nav-icon" fill="currentColor" viewBox="0 0 48 48" height="1em" width="1em">
-              <path d="M41 10c-2.2-2.1-4.8-3.5-10.4-3.5h-3.3L30.5 3c.6-.6.5-1.6-.1-2.1-.6-.6-1.6-.5-2.1.1L24 5.6 19.7 1c-.6-.6-1.5-.6-2.1-.1-.6.6-.7 1.5-.1 2.1l3.2 3.5h-3.3C11.8 6.5 9.2 7.9 7 10c-2.1 2.2-3.5 4.8-3.5 10.4v13.1c0 5.7 1.4 8.3 3.5 10.5 2.2 2.1 4.8 3.5 10.4 3.5h13.1c5.7 0 8.3-1.4 10.5-3.5 2.1-2.2 3.5-4.8 3.5-10.4V20.5c0-5.7-1.4-8.3-3.5-10.5zm.5 23.6c0 5.2-1.3 7-2.6 8.3-1.4 1.3-3.2 2.6-8.4 2.6H17.4c-5.2 0-7-1.3-8.3-2.6-1.3-1.4-2.6-3.2-2.6-8.4v-13c0-5.2 1.3-7 2.6-8.3 1.4-1.3 3.2-2.6 8.4-2.6h13.1c5.2 0 7 1.3 8.3 2.6 1.3 1.4 2.6 3.2 2.6 8.4v13zM34.6 25l-9.1 2.8v-3.7c0-.5-.2-.9-.6-1.2-.4-.3-.9-.4-1.3-.2l-11.1 3.4c-.8.2-1.2 1.1-1 1.9.2.8 1.1 1.2 1.9 1l9.1-2.8v3.7c0 .5.2.9.6 1.2.3.2.6.3.9.3.1 0 .3 0 .4-.1l11.1-3.4c.8-.2 1.2-1.1 1-1.9s-1.1-1.2-1.9-1z"></path>
-            </svg>
-            Stories
-            <strong>{{ stories.length }}</strong>
-          </a>
-        </div>
-      </nav>
+    </header>
+    <nav>
+      <div class="nav-container">
+        <a{% if page.url === "/" %} aria-current="page"{% endif %} href="/">
+          <svg aria-hidden="true" class="nav-icon" fill="currentColor" height="1em" width="1em" viewBox="0 0 48 48" >
+            <path clip-rule="evenodd" fill-rule="evenodd" d="M45 1.5H3c-.8 0-1.5.7-1.5 1.5v42c0 .8.7 1.5 1.5 1.5h42c.8 0 1.5-.7 1.5-1.5V3c0-.8-.7-1.5-1.5-1.5zm-40.5 3h11v11h-11v-11zm0 14h11v11h-11v-11zm11 25h-11v-11h11v11zm14 0h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11zm14 28h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11z"></path>
+          </svg>
+          Feed
+          <strong>{{ posts.length }}</strong>
+        </a>
+        <a{% if page.url === "/stories/" %} aria-current="page"{% endif %} href="/stories">
+          <svg aria-hidden="true" class="nav-icon" fill="currentColor" viewBox="0 0 48 48" height="1em" width="1em">
+            <path d="M41 10c-2.2-2.1-4.8-3.5-10.4-3.5h-3.3L30.5 3c.6-.6.5-1.6-.1-2.1-.6-.6-1.6-.5-2.1.1L24 5.6 19.7 1c-.6-.6-1.5-.6-2.1-.1-.6.6-.7 1.5-.1 2.1l3.2 3.5h-3.3C11.8 6.5 9.2 7.9 7 10c-2.1 2.2-3.5 4.8-3.5 10.4v13.1c0 5.7 1.4 8.3 3.5 10.5 2.2 2.1 4.8 3.5 10.4 3.5h13.1c5.7 0 8.3-1.4 10.5-3.5 2.1-2.2 3.5-4.8 3.5-10.4V20.5c0-5.7-1.4-8.3-3.5-10.5zm.5 23.6c0 5.2-1.3 7-2.6 8.3-1.4 1.3-3.2 2.6-8.4 2.6H17.4c-5.2 0-7-1.3-8.3-2.6-1.3-1.4-2.6-3.2-2.6-8.4v-13c0-5.2 1.3-7 2.6-8.3 1.4-1.3 3.2-2.6 8.4-2.6h13.1c5.2 0 7 1.3 8.3 2.6 1.3 1.4 2.6 3.2 2.6 8.4v13zM34.6 25l-9.1 2.8v-3.7c0-.5-.2-.9-.6-1.2-.4-.3-.9-.4-1.3-.2l-11.1 3.4c-.8.2-1.2 1.1-1 1.9.2.8 1.1 1.2 1.9 1l9.1-2.8v3.7c0 .5.2.9.6 1.2.3.2.6.3.9.3.1 0 .3 0 .4-.1l11.1-3.4c.8-.2 1.2-1.1 1-1.9s-1.1-1.2-1.9-1z"></path>
+          </svg>
+          Stories
+          <strong>{{ stories.length }}</strong>
+        </a>
+      </div>
+    </nav>
+
+    <main id="main">
       <h2>{{ title }}</h2>
       {{ content | safe }}
     </main>

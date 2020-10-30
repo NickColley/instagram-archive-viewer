@@ -8,6 +8,7 @@ const open = require("open");
 const eleventy = require("@11ty/eleventy");
 const zipFile = require("is-zip-file");
 const unzipper = require("unzipper");
+const prompts = require("prompts");
 const tmp = require("tmp");
 const debug = require("debug")("instagram-download-viewer");
 const { program } = require("commander");
@@ -37,14 +38,14 @@ function symlinkFiles(archiveFileName, files) {
     const alreadyLinked =
       afterFileExists && fs.lstatSync(afterPath).isSymbolicLink();
     if (alreadyLinked) {
-      await fs.promises.unlink(afterPath);
+      await fs.unlinkSync(afterPath);
       debug(`unlinking already linked ${afterPath}`);
     }
     if (!beforeFileExists) {
       return debug(`No ${beforePath} exists`);
     }
     debug(`Symbolic link between ${beforePath} and ${afterPath}`);
-    fs.promises.symlink(beforePath, afterPath, "file");
+    fs.symlinkSync(beforePath, afterPath, "file");
   });
 }
 
@@ -61,10 +62,22 @@ function unzip(input, outputFileName) {
 }
 
 async function findAndUnzipArchive(input) {
+  const exists = fs.existsSync(input);
+  if (!exists) {
+    return false;
+  }
   const isDirectory = fs.lstatSync(input).isDirectory();
   if (isDirectory) {
-    console.log("Found a directory, using it.");
-    return input;
+    const response = await prompts({
+      type: "confirm",
+      name: "value",
+      message: `Use folder: ${input}?`,
+    });
+    if (response.value) {
+      return input;
+    } else {
+      return false;
+    }
   }
   const isFile = fs.lstatSync(input).isFile();
   const isZip = isFile ? zipFile.isZipSync(input) : false;
@@ -80,7 +93,22 @@ async function findAndUnzipArchive(input) {
       fs.lstatSync(outputFileName).isDirectory();
     if (unzippedFileExists) {
       debug(`Already extracted at ${outputFileName}`);
-      return outputFileName;
+      const response = await prompts({
+        type: "confirm",
+        name: "value",
+        message: `Use existing unzipped folder: ${outputFileName}?`,
+      });
+      if (response.value) {
+        return outputFileName;
+      }
+    }
+    const response = await prompts({
+      type: "confirm",
+      name: "value",
+      message: `Unzip ${input} to: ${outputFileName}?`,
+    });
+    if (!response.value) {
+      return false;
     }
     debug(`Found a zip file, extracting to ${outputFileName}`);
     try {
@@ -98,29 +126,36 @@ async function main() {
   serve = typeof serve === "string" ? serve === "true" : serve;
 
   if (!input || !output) {
-    return console.log("No input specified.");
-  }
-  const exists = fs.existsSync(input);
-  if (!exists) {
-    return console.log("Input does not exist.");
+    return console.log("No input folder specified.");
   }
   const archiveFileName = await findAndUnzipArchive(input);
-  console.log({ archiveFileName });
+
   if (!archiveFileName) {
-    console.log("nothing can use, cancelling");
-    return;
+    return console.log("No usable input folder could be found, stopping.");
   }
 
   debug(`Directory ready to use ${archiveFileName}`);
 
-  symlinkFiles(archiveFileName, [
+  const filesToLink = [
     "profile.json",
     "media.json",
     "profile",
     "stories",
     "photos",
     "videos",
-  ]);
+  ].map((file) => {
+    return path.join(archiveFileName, file);
+  });
+  const response = await prompts({
+    type: "confirm",
+    name: "value",
+    message: `Create a symbolic link to your input folder for the following files and folders?
+${filesToLink.join(",\n")}`,
+  });
+  if (!response.value) {
+    return console.log("No permission to link files from archive, stopping.");
+  }
+  symlinkFiles(archiveFileName, filesToLink);
 
   const Eleventy = new eleventy(path.join("src"), path.join(output));
 
@@ -137,7 +172,7 @@ async function main() {
     return debug("Finished");
   }
 
-  const port = process.env.port || 3000;
+  const port = process.env.port || 8080;
   http
     .createServer((request, response) => {
       return handler(request, response, {
@@ -145,10 +180,18 @@ async function main() {
         cleanUrls: true,
       });
     })
-    .listen(port, () => {
+    .listen(port, async () => {
       const servedUrl = `http://localhost:${port}`;
-      debug(`Running at ${servedUrl}`);
-      open(servedUrl);
+      console.log(`Running at ${servedUrl}, use CTRL+C to quit.`);
+
+      const response = await prompts({
+        type: "confirm",
+        name: "value",
+        message: `Want to open ${servedUrl} in your browser?`,
+      });
+      if (response.value) {
+        open(servedUrl);
+      }
       debug("Finished");
     });
 }
