@@ -9,13 +9,13 @@ First, download your [instagram data archive](https://help.instagram.com/contact
 Then run:
 
 ```
-npx instagram-download-viewer --input ~/Downloads/username_12345678.zip
+npx github:nickcolley/instagram-download-viewer --input ~/Downloads/username_12345678.zip
 ```
 
 For all options run:
 
 ```
-npx instagram-download-viewer --help
+npx github:nickcolley/instagram-download-viewer --help
 ```
 
 ## Will this expose my personal details?
