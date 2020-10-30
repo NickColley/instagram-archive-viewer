@@ -5,7 +5,8 @@
     "instagram-download-viewer": "./bin/index.js"
   },
   "scripts": {
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
     "hooks": {
