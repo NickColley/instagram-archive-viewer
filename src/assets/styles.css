@@ -29,13 +29,13 @@ body {
 }
 
 body {
-  padding: 2rem 1rem;
-  max-width: 800px;
+  padding: 1rem;
+  max-width: 1400px;
   margin: 0 auto;
 }
-@media (min-width: 800px) {
+@media (min-width: 700px) {
   body {
-    padding: 2rem 1rem;
+    padding: 4rem;
   }
 }
 
@@ -102,17 +102,15 @@ h6 {
   font-weight: 700;
 }
 
-img {
+img,
+video {
   display: block;
   max-width: 100%;
   margin: auto;
 }
 
 video {
-  display: block;
-  max-width: 100%;
   border: none;
-  margin: auto;
 }
 
 nav {
@@ -169,6 +167,11 @@ nav a:not([aria-current="page"]) {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+}
+@media (min-width: 500px) {
+  .feed {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (min-width: 800px) {
   .feed {
