@@ -1,5 +1,8 @@
 # Instagram Download Viewer
 
+[![Repository CI Status](https://github.com/nickcolley/instagram-download-viewer/workflows/ci/badge.svg)](https://github.com/nickcolley/instagram-download-viewer/actions?query=workflow%3Aci)
+[![npm version](https://img.shields.io/npm/v/instagram-download-viewer.svg?style=flat)](https://www.npmjs.com/package/instagram-download-viewer)
+
 ![](readme-screenshot-3.png)
 
 View your main instagram feed and stories to a local website from your data download archive.
@@ -44,8 +47,6 @@ Note: be careful as your archive contains sensitive information.
 By default it will be ignored by `.gitignore` but you may decide some of the already public parts of your archive are safe to commit.
 
 ## Development
-
-[![Repository CI Status](https://github.com/nickcolley/instagram-download-viewer/workflows/ci/badge.svg)](https://github.com/nickcolley/instagram-download-viewer/actions?query=workflow%3Aci)
 
 ### Running the project locally on your machine
 
