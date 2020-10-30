@@ -1,6 +1,6 @@
 # Instagram Download Viewer
 
-![](readme-screenshot-2.png)
+![](readme-screenshot-3.png)
 
 View your main instagram feed and stories to a local website from your data download archive.
 
