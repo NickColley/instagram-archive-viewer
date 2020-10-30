@@ -20,10 +20,14 @@ npx instagram-download-viewer --help
 
 ## Will this expose my personal details?
 
-No, this tool only runs on your machine.
+This tool only runs on your machine.
 It uses your main feed, stories and profile (which contains your email address).
-Any doubts make sure to review the source code.
-You can also unzip your archive yourself and remove any sensitive information before running the tool.
+
+You can also:
+
+- review the source code.
+- unzip your archive yourself
+- remove any sensitive information
 
 ## I want to re-use this for my website
 
