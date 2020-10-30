@@ -20,11 +20,14 @@ const tmpDir = tmp.dirSync({
   unsafeCleanup: true,
 });
 program
-  .option("-s, --serve <value>", "serve the output site site", true)
-  .option("-i, --input <path>", "path to instagram data download zip file")
+  .option("-s, --serve <value>", "toggle serving the site.", true)
+  .option(
+    "-i, --input <path>",
+    "location of your archive as a zip file or folder."
+  )
   .option(
     "-o, --output <path>",
-    "path to output generated site at",
+    "location where the local website will be generated.",
     tmpDir.name
   );
 program.parse(process.argv);

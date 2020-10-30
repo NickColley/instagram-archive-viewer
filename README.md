@@ -1,40 +1,79 @@
 # Instagram Download Viewer
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ee633230-2623-4132-8240-c6aae7b4b132/deploy-status)](https://app.netlify.com/sites/instagram-download-viewer/deploys) [![Repostiory CI Status](https://github.com/nickcolley/instagram-download-viewer/workflows/ci/badge.svg)](https://github.com/nickcolley/instagram-download-viewer/actions?query=workflow%3Aci)
+View your main instagram feed and stories to a local website from your data download archive.
 
-## Running the project locally on your machine
+## Getting started
+
+First, download your [instagram data archive](https://help.instagram.com/contact/163695614321277).
+
+Then run:
+
+```
+npx instagram-download-viewer --input ~/Downloads/username_12345678.zip
+```
+
+For all options run:
+
+```
+npx instagram-download-viewer --help
+```
+
+## Will this expose my personal details?
+
+No, this tool only runs on your machine.
+It uses your main feed, stories and profile (which contains your email address).
+Any doubts make sure to review the source code.
+You can also unzip your archive yourself and remove any sensitive information before running the tool.
+
+## I want to re-use this for my website
+
+This project is an Eleventy site under the hood.
+You can:
+
+1. fork this project
+2. remove the `bin` folder.
+3. manually copy your archive into the `src/_data` directory.
+
+Note: be careful as your archive contains sensitive information.
+By default it will be ignored by `.gitignore` but you may decide some of the already public parts of your archive are safe to commit.
+
+## Development
+
+[![Repostiory CI Status](https://github.com/nickcolley/instagram-download-viewer/workflows/ci/badge.svg)](https://github.com/nickcolley/instagram-download-viewer/actions?query=workflow%3Aci)
+
+### Running the project locally on your machine
 
 You'll need Git and Node.js installed.
 
 If you don't have Node.js, try [installing Node Version Manager (NVM)](https://github.com/nvm-sh/nvm#install--update-script) before following the next steps.
 
-### 1. [Fork the project](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
+#### 1. [Fork the project](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
 
-### 2. Clone your forked project
+#### 2. Clone your forked project
 
 ```bash
 git clone git@github.com:your-username-here/instagram-download-viewer.git
 ```
 
-### 3. Navigate to the project
+#### 3. Navigate to the project
 
 ```bash
 cd instagram-download-viewer
 ```
 
-### 4. Install Node.js using nvm (optional)
+#### 4. Install Node.js using nvm (optional)
 
 ```
 nvm use
 ```
 
-### 5. Install dependencies
+#### 5. Install dependencies
 
 ```
 npm install
 ```
 
-### 6. Run the site
+#### 6. Run the site
 
 ```
 npm start
