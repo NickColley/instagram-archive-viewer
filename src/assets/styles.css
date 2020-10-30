@@ -1,12 +1,43 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 html {
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background: #fafafa;
+  color: #262626;
+  font-size: 1.3rem;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
-  -webkit-tap-highlight-color: transparent;
+}
+
+main {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (min-width: 800px) {
+  main {
+    padding: 3rem 1rem;
+  }
+}
+
+:link,
+:visited {
+  color: #3636e8;
 }
 
 :focus {
-  outline: 1px solid;
-  outline-offset: 0;
+  outline: 2px dotted;
+  outline-offset: 2px;
 }
 
 .skip-link {
@@ -42,4 +73,117 @@ html {
 
 .no-js .js-visible {
   display: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  text-transform: lowercase;
+}
+
+strong {
+  font-weight: 500;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: auto;
+}
+
+video {
+  display: block;
+  max-width: 100%;
+  border: none;
+  margin: auto;
+}
+
+nav {
+  border-top: 0.08rem solid #ddd;
+}
+
+.nav-container {
+  display: flex;
+  gap: 0.8rem;
+}
+
+nav a {
+  position: relative;
+  top: -0.08rem;
+  border-top: 0.08rem solid;
+  display: inline-flex;
+  gap: 0.3rem;
+  padding: 0.8rem 0.5rem;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+nav a:not([aria-current="page"]) {
+  border-top-color: transparent;
+}
+
+[aria-current="page"]:not(:hover):not(:focus):not(:active) {
+  color: currentColor;
+}
+
+.aspect-ratio {
+  height: 0;
+  overflow: hidden;
+  padding-top: calc(1 / 1 * 100%);
+  background: white;
+  position: relative;
+}
+.aspect-ratio--portrait {
+  height: 0;
+  overflow: hidden;
+  padding-top: calc(16 / 9 * 100%);
+  background: white;
+  position: relative;
+}
+.aspect-ratio-inside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.feed {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 800px) {
+  .feed {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.profile {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.profile img {
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  display: inline-block;
+  margin: 0;
+}
+.profile h1 {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.profile p {
+  margin: 0;
+  text-transform: lowercase;
 }

@@ -1,5 +1,18 @@
 ---
+title: feed
 layout: base.njk
 ---
-
-<h1>Hello World.</h1>
+<div class="feed">
+    {% for post in posts %}
+        <a class="aspect-ratio" href="/{{ post.path }}">
+            <div class="aspect-ratio-inside">
+                {% if post.type === 'photo' %}
+                    <img src="/{{ post.path }}" alt="{% if post.caption %}{{ post.caption }}. {% endif %}Date: {{ post.formattedDate }}." loading="lazy" />
+                {% endif %}
+                {% if post.type === 'video' %}
+                    <video src="/{{ post.path }}" controls loop aria-label="{% if post.caption %}{{ post.caption }}. {% endif %}Date: {{ post.formattedDate }}." loading="lazy"></video>
+                {% endif %}
+            </div>
+        </a>
+    {% endfor %}
+</div>

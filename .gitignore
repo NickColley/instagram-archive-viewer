@@ -10,3 +10,4 @@ _site/
 # Prevent instagram folder from being committed
 src/_data/**/*
 !src/_data/README.md
+!src/_data/*.js

@@ -1,0 +1,18 @@
+---
+title: Stories
+layout: base.njk
+---
+<div class="feed">
+    {% for story in stories %}
+        <a class="aspect-ratio aspect-ratio--portrait" href="/{{ story.path }}">
+            <div class="aspect-ratio-inside">
+                {% if story.type === 'photo' %}
+                    <img src="/{{ story.path }}" alt="{% if story.caption %}{{ story.caption }}. {% endif %}Date: {{ story.formattedDate }}." loading="lazy" />
+                {% endif %}
+                {% if story.type === 'video' %}
+                    <video src="/{{ story.path }}" controls loop aria-label="{% if story.caption %}{{ story.caption }}. {% endif %}Date: {{ story.formattedDate }}." loading="lazy"></video>
+                {% endif %}
+            </div>
+        </a>
+    {% endfor %}
+</div>
